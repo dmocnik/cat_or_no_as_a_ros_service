@@ -34,6 +34,7 @@ class CatOrNoAsARosServiceNode(Node):
             msg.header.stamp = stamp
             msg.header.frame_id = frame_id
 
+            self.log.info(reason)
             return msg
 
         choice = random.randint(0, 1)
@@ -59,6 +60,8 @@ class CatOrNoAsARosServiceNode(Node):
                 msg = ros_img
                 msg.header.stamp = stamp
                 msg.header.frame_id = frame_id
+
+                self.log.info('meow')
             except Exception as e:
                 self.log.info(e)
                 msg = no()
